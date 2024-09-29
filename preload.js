@@ -2,8 +2,9 @@ const { contextBridge, ipcRenderer } = require('electron')
 
 
 contextBridge.exposeInMainWorld('electronAPI', {
-    openButton: () => ipcRenderer.send('openButton')
-})
+    openButton: () => ipcRenderer.send('openButton'),
+    onProgressUpdate: (callback) => ipcRenderer.on('progress-update', callback)
+});
 
 contextBridge.exposeInMainWorld('versions', {
     node: () => process.versions.node,

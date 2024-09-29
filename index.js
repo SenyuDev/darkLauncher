@@ -23,6 +23,12 @@ const createWindow = () => {
     win.loadFile('index.html')
 }
 
+let prog = {
+    type: "assets",
+    task:0,
+    total:10
+}
+
 function launchMc(event) {
     authManager.launch("electron").then(async (xboxManager) => {
         const token = await xboxManager.getMinecraft();
@@ -55,7 +61,11 @@ function launchMc(event) {
 
         launcher.on("debug", (e) => console.log(e));
         launcher.on("data", (e) => console.log(e));
-        launcher.on("progress", (e)=>console.log(e))
+        launcher.on("progress", (e) => {
+            prog = e;
+            console.log(prog); // esto imprime el progreso en la consola principal
+            event.sender.send('progress-update', prog); // Envía el progreso al renderizador
+        });
     });
 }
 
@@ -67,8 +77,8 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-
 })
+
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
