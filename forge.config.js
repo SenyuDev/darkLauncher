@@ -40,8 +40,8 @@ module.exports = {
       [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: true,
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
-  ],
-  publishers: [
+  ]
+  /*publishers: [
     {
       name: '@electron-forge/publisher-github',
       config: {
@@ -53,5 +53,5 @@ module.exports = {
         draft: true
       }
     }
-  ]
+  ]*/
 };

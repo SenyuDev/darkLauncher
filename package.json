@@ -25,6 +25,9 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
+    "minecraft-launcher-core": "^3.18.1",
+    "msmc": "^5.0.5",
+    "tomate-loaders": "^2.0.2",
     "update-electron-app": "^3.0.0"
   }
 }
