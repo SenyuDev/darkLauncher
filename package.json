@@ -2,7 +2,7 @@
   "name": "darklauncher",
   "version": "0.0.1",
   "description": "Launcher para java By SenyuGamer",
-  "main": "index.js",
+  "main": "main.js",
   "build": {
     "appId": "com.darkbasement.darklauncher",
     "productName": "DarkLauncher",
@@ -10,11 +10,6 @@
     "directories": {
       "output": "dist"
     },
-    "files": [
-      "src/**/*",
-      "assets/**/*",
-      "!**/.minecraft/**/*"
-    ],
     "extraResources": [
       {
         "from": "assets/",
@@ -45,7 +40,6 @@
       "shortcutName": "DarkLauncher"
     }
   },
-  "type": "module",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
