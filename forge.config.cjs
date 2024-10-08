@@ -3,6 +3,24 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
+    // Archivos y carpetas a incluir/excluir
+    ignore: [
+      /^\/\.minecraft\//, // Ignora la carpeta .minecraft
+      /\.git/,
+      /\.vscode/,
+      function(path) {
+        // Si el path incluye .minecraft, lo ignoramos
+        if (path.includes('.minecraft')) return true;
+        // Si el path incluye assets, no lo ignoramos
+        if (path.includes('assets')) return false;
+        // Para otros paths, puedes añadir más lógica aquí
+        return false;
+      }
+    ],
+    // Asegurarse de que los assets se incluyan
+    extraResource: [
+      'assets'
+    ],
     asar: true,
   },
   rebuildConfig: {},
