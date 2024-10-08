@@ -11,10 +11,53 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>DarkLauncher</title>
+    <link rel="stylesheet" href="style.css">
+    <title>DarkBasement Laucher</title>
   </head>
   <body>
-    <button id="btn">Open</button>
+
+    <video autoplay muted loop playsinline id="background-video">
+      <source src="assets/fondo.mp4" type="video/mp4">
+      Tu navegador no soporta videos en HTML5.
+    </video>
+
+    <select id="songSelect">
+      <option value="" class="option">sin musica</option>
+      <option value="assets/canciones/menu1.ogg" class="option">Clown Festival</option>
+      <option value="assets/canciones/menu2.ogg" class="option">End Night</option>
+      <option value="assets/canciones/menu3.ogg" class="option">Cave Hell</option>
+      <option value="assets/canciones/menu4.ogg" class="option">Troubled Waves</option>
+      <option value="assets/canciones/Cigarettes After Sex - K. (Instrumental).mp3" class="option">K.</option>
+      <option value="assets/canciones/Arctic Monkeys - 505 Instrumental.mp3" class="option">505</option>
+    </select>
+
+  <audio id="audioPlayer"></audio>
+
+    <div class="conteiner">
+      <ul>
+        <li>
+          <a href="">
+            <img src="assets/discord.png" class="social-media">
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="assets/youtube.png" class="social-media">
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="assets/x.png" class="social-media">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="conteiner-down">
+      <button id="btn">Play</button>
+    </div>
+    <img src="assets/icono2.png" class="icon">
+    <p class="creditos" id="creditos"></p>
   </body>
   <script src="./renderer.js"></script>
+  <script src="animacion.js"></script>
 </html>
