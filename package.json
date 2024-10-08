@@ -51,7 +51,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-		"build": "electron-builder --mac --windows --linux"
+		"build": "electron-builder --windows"
   },
   "author": "SenyuGamer",
   "license": "ISC",
