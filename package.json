@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Launcher para java By SenyuGamer",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
