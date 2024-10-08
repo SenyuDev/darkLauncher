@@ -65,10 +65,10 @@
     "@electron-forge/plugin-fuses": "^7.5.0",
     "@electron-forge/publisher-github": "^7.5.0",
     "@electron/fuses": "^1.8.0",
+    "electron-builder": "^25.1.7",
     "electron": "^32.1.2"
   },
   "dependencies": {
-    "electron-builder": "^25.1.7",
     "electron-squirrel-startup": "^1.0.1",
     "minecraft-launcher-core": "^3.18.1",
     "msmc": "^5.0.5",
