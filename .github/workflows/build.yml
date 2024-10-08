@@ -25,7 +25,7 @@ jobs:
             node-version: 16
 
       - name: Electron-builder compiler action
-        uses: x6pnda/action-electron-compiler@v1.0.1
+        uses: x6pnda/action-electron-compiler@v1.0.0
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             release: ${{ startsWith(github.ref, 'refs/tags/v') }}  # Se libera solo si es un tag
