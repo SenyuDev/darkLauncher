@@ -3,12 +3,55 @@
   "version": "0.0.1",
   "description": "Launcher para java By SenyuGamer",
   "main": "index.js",
+  "build": {
+    "appId": "com.darkbasement.darklauncher",
+    "productName": "DarkLauncher",
+    "copyright": "Copyright © 2024 darkbasement",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "!**/.minecraft/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DarkLauncher"
+    }
+  },
   "type": "module",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "electron-forge publish",
+		"build": "electron-builder --mac --windows --linux"
   },
   "author": "SenyuGamer",
   "license": "ISC",
@@ -25,6 +68,7 @@
     "electron": "^32.1.2"
   },
   "dependencies": {
+    "electron-builder": "^25.1.7",
     "electron-squirrel-startup": "^1.0.1",
     "minecraft-launcher-core": "^3.18.1",
     "msmc": "^5.0.5",
