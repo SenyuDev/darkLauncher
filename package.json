@@ -1,6 +1,6 @@
 {
   "name": "darklauncher",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Launcher para java By SenyuGamer",
   "main": "main.js",
   "build": {
@@ -22,16 +22,14 @@
         "portable"
       ]
     },
-    "mac": {
-      "target": "dmg"
+    "publish": {
+      "provider": "github",
+      "owner": "SenyuDev",
+      "repo": "darkLauncher",
+      "releaseType": "release",
+      "force": true
     },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "category": "Utility"
-    },
+    "artifactName": "${productName}-${version}.${ext}",
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
@@ -45,7 +43,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-		"build": "electron-builder --windows"
+		"build": "electron-builder --windows --publish always -c.publish.force=true"
   },
   "author": "SenyuGamer",
   "license": "ISC",
