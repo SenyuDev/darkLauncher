@@ -22,14 +22,6 @@
         "portable"
       ]
     },
-    "publish": {
-      "provider": "github",
-      "owner": "SenyuDev",
-      "repo": "darkLauncher",
-      "releaseType": "release",
-      "force": true
-    },
-    "artifactName": "${productName}-${version}.${ext}",
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
