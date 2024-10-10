@@ -1,6 +1,16 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
-require('update-electron-app')
+
 const path = require('node:path')
+const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
+
+updateElectronApp({
+  updateSource: {
+    type: UpdateSourceType.ElectronPublicUpdateService,
+    repo: 'SenyuDev/darkLauncher' 
+  },
+  updateInterval: '10 minutes'
+});
+
 
 
 const { Client } = require("minecraft-launcher-core");
