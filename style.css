@@ -8,6 +8,63 @@
   object-fit: cover;
 }
 
+
+.progress-container {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  display: none;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #333333;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #8c8c8c;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+.progress-text {
+  text-align: center;
+  color: white;
+  margin-top: 5px;
+}
+
+button:disabled {
+  background-color: #4a4a4a;
+  cursor: not-allowed;
+}
+
+
+.profile-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-text {
+  color: white;
+  font-size: 16px;
+}
+
 ul {
   list-style: none;
   margin: 0;
