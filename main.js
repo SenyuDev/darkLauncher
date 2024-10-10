@@ -3,13 +3,7 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('node:path')
 const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
 
-updateElectronApp({
-  updateSource: {
-    type: UpdateSourceType.ElectronPublicUpdateService,
-    repo: 'https://github.com/SenyuDev/darkLauncher' 
-  },
-  updateInterval: '10 minutes'
-});
+updateElectronApp({notifyUser:true,updateSource:{repo:"SenyuDev/darkLauncher"}});
 
 
 
