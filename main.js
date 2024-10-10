@@ -6,7 +6,7 @@ const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
 updateElectronApp({
   updateSource: {
     type: UpdateSourceType.ElectronPublicUpdateService,
-    repo: 'SenyuDev/darkLauncher' 
+    repo: 'https://github.com/SenyuDev/darkLauncher' 
   },
   updateInterval: '10 minutes'
 });
