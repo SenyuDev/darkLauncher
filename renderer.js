@@ -35,9 +35,9 @@ const unsubscribeProgressUpdate = window.electronAPI.onProgressUpdate((event, pr
     progressFill.style.width = `${percentage}%`;
     progressText.textContent = `${percentage}% - ${prog.type}`;
     // Hay que quitar esto q si no parece q termino de cargar y no incio xd
-    if (prog.type === "assets" && percentage === 100) {
-        progressContainer.style.display = "none"
-    }
+    // if (prog.type === "assets" && percentage === 100) {
+    //     progressContainer.style.display = "none"
+    // }
 });
 
 window.addEventListener('beforeunload', () => {
