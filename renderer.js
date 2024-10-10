@@ -5,33 +5,41 @@ const progressText = document.getElementById('progressText');
 const progressContainer = document.querySelector('.progress-container');
 const profileText = document.querySelector('.profile-text');
 
-// Evento al hacer click en el botón
+const profileImage = document.getElementById('profileImage');
+
+const loadingOverlay = document.getElementById('loadingOverlay');
+
+let plName = "Steve"
+const link = "https://skins.danielraybone.com/v1/head/"+plName
+
+profileImage.src = link
+
 openButton.addEventListener('click', () => {
     console.log('Botón clickeado, enviando evento al main process');
     openButton.disabled = true;
     progressContainer.style.display = 'block';
 
-    // Envía el evento al main process para iniciar la acción
     window.electronAPI.openButton();
 });
 
-// Escuchar el nombre del jugador actualizado desde el main process
 window.electronAPI.onUpdatePlayerName((event, playerName) => {
-    profileText.textContent = playerName;  // Actualiza el perfil con el nombre real
+    profileText.textContent = playerName;
     console.log(`Nombre del jugador actualizado: ${playerName}`);
+    plName = playerName
+    profileImage.src = "https://skins.danielraybone.com/v1/head/"+playerName
+    loadingOverlay.style.display = 'none';
 });
 
-// Escuchar actualizaciones de progreso
 const unsubscribeProgressUpdate = window.electronAPI.onProgressUpdate((event, prog) => {
     const percentage = Math.round((prog.task / prog.total) * 100);
     progressFill.style.width = `${percentage}%`;
     progressText.textContent = `${percentage}% - ${prog.type}`;
-    if (prog.type === "assets" && percentage === 100){
+    // Hay que quitar esto q si no parece q termino de cargar y no incio xd
+    if (prog.type === "assets" && percentage === 100) {
         progressContainer.style.display = "none"
     }
 });
 
-// Limpia el listener de progreso cuando ya no sea necesario
 window.addEventListener('beforeunload', () => {
     unsubscribeProgressUpdate();
 });

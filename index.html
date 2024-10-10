@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
     <link rel="stylesheet" href="style.css">
     <title>DarkBasement Laucher</title>
   </head>
   <body>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="spinner"></div>
+  </div>
     <!-- Nueva sección de perfil -->
     <div class="profile-container">
-        <span class="profile-text">Nombre Jugador</span>
-        <!-- <img src="assets/default-profile.png" alt="Perfil" class="profile-image"> -->
-    </div>
+    <img id="profileImage" src="assets/default-profile.png" alt="Perfil" class="profile-image"> <!-- Imagen del perfil -->
+    <span class="profile-text">Steve</span>
+</div>
     <div class="progress-container">
       <div class="progress-bar" id="progressBar">
         <div class="progress-fill"></div>

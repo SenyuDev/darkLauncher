@@ -12,25 +12,16 @@ const authManager = new Auth("select_account");
 const { forge } = require("tomate-loaders")
 
 
-let mainWindow; // Para mantener una referencia a la ventana principal
-
-
-const sendPlayerNameToRenderer = (playerName) => {
-    if (mainWindow) {
-        // Envía el nombre del jugador al renderer una vez que lo tengas
-        mainWindow.webContents.send('player-name', playerName);
-    }
-};
-
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
+        icon:path.join(__dirname,"assets","icono.ico"),
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'), // Asegúrate de que esta ruta es correcta
-            nodeIntegration: false, // Necesario por seguridad
-            contextIsolation: true, // Para usar contextBridge
-            enableRemoteModule: false // Deshabilitar el módulo remoto por seguridad
+            preload: path.join(__dirname, 'preload.js'),
+            nodeIntegration: false,
+            contextIsolation: true,
+            enableRemoteModule: false 
         }
     })
 
@@ -79,36 +70,29 @@ async function launchMc(event, xboxManager) {
     launcher.on("data", (e) => console.log(e));
     launcher.on("progress", (e) => {
         prog = e;
-        console.log(prog); // esto imprime el progreso en la consola principal
-        event.sender.send('progress-update', prog); // Envía el progreso al renderizador
+        event.sender.send('progress-update', prog); 
     });;
 }
 
 let playerName = "Hola Mundo";
 
 app.whenReady().then(async () => {
-    // Configura los manejadores de IPC antes de crear la ventana
     ipcMain.handle('ping', () => 'pong');
-    ipcMain.handle('playerName', () => playerName); // Inicialmente devuelve "Hola Mundo"
+    ipcMain.handle('playerName', () => playerName);
 
-    // Luego creas la ventana
     createWindow();
 
-    // Maneja la autenticación de forma asíncrona
     try {
         const xboxManager = await authManager.launch("electron");
         const token = await xboxManager.getMinecraft();
         
-        // Actualiza el nombre del jugador una vez que se obtenga el token
         playerName = token.profile.name;
 
-        // Envía el nombre al frontend usando webContents cuando esté listo
         const allWindows = BrowserWindow.getAllWindows();
         if (allWindows.length > 0) {
             allWindows[0].webContents.send('updatePlayerName', playerName);
         }
 
-        // Escucha el evento del botón "openButton" desde el frontend
         ipcMain.on('openButton', (event) => launchMc(event, xboxManager));
     } catch (error) {
         console.error('Error during authentication:', error);

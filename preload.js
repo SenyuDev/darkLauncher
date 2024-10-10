@@ -5,14 +5,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
     onProgressUpdate: (callback) => {
         ipcRenderer.on('progress-update', callback);
 
-        // Añadir opción para limpiar listeners cuando sea necesario
         return () => ipcRenderer.removeListener('progress-update', callback);
     },
     playerName: () => ipcRenderer.invoke('playerName'),
     onUpdatePlayerName: (callback) => {
         ipcRenderer.on('updatePlayerName', callback);
 
-        // Retorna una función para limpiar el listener si es necesario
         return () => ipcRenderer.removeListener('updatePlayerName', callback);
     }
 });

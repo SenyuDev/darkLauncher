@@ -1,12 +1,12 @@
 {
   "name": "darklauncher",
   "version": "0.0.6",
-  "description": "Launcher para java By SenyuGamer",
+  "description": "Launcher para java By SenyuGamer And Viruz",
   "main": "main.js",
   "build": {
     "appId": "com.darkbasement.darklauncher",
     "productName": "DarkLauncher",
-    "copyright": "Copyright © 2024 darkbasement",
+    "copyright": "Copyright © 2024 Darkbasement",
     "directories": {
       "output": "dist"
     },
@@ -20,7 +20,8 @@
       "target": [
         "nsis",
         "portable"
-      ]
+      ],
+      "icon":"./assets/icono.ico"
     },
     "nsis": {
       "oneClick": false,
@@ -35,9 +36,9 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-		"build": "electron-builder --windows --publish always"
+    "build": "electron-builder --windows --publish always"
   },
-  "author": "SenyuGamer",
+  "author": "DarkBasement",
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^7.5.0",
@@ -49,13 +50,14 @@
     "@electron-forge/plugin-fuses": "^7.5.0",
     "@electron-forge/publisher-github": "^7.5.0",
     "@electron/fuses": "^1.8.0",
-    "electron-builder": "^25.1.7",
-    "electron": "^32.1.2"
+    "electron": "^32.1.2",
+    "electron-builder": "^25.1.7"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
     "minecraft-launcher-core": "^3.18.1",
     "msmc": "^5.0.5",
+    "skinview3d": "^3.1.0",
     "tomate-loaders": "^2.0.2",
     "update-electron-app": "^3.0.0"
   }

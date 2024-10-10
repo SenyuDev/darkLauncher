@@ -3,7 +3,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
-    // Archivos y carpetas a incluir/excluir
+    icon:"assets/icono.ico",
     ignore: [
       /^\/\.minecraft\//, // Ignora la carpeta .minecraft
       /\.git/,
@@ -17,7 +17,6 @@ module.exports = {
         return false;
       }
     ],
-    // Asegurarse de que los assets se incluyan
     extraResource: [
       'assets'
     ],
